@@ -6,6 +6,10 @@
     <title>Thorsten Ahrens Sanitär- und Heizungstechnik | Kisdorf</title>
     <meta name="description" content="Ihr Meisterbetrieb für Sanitär, Heizung, Lüftung und Solartechnik in Kisdorf. Ihr Partner seit 1995 für alle Haustechnik-Belange.">
     <meta name="keywords" content="Sanitär, Heizung, Lüftung, Solar, Kisdorf, Badsanierung, Wärmepumpe, Brennwerttechnik">
+    <link rel="icon" type="image/png" sizes="32x32" href="static/images/favicon-32.png">
+    <link rel="icon" type="image/png" sizes="64x64" href="static/images/favicon.png">
+    <link rel="shortcut icon" type="image/png" href="static/images/favicon.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="static/images/apple-touch-icon.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
@@ -86,9 +90,20 @@
         .nav-logo {
             font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
             color: #fff; transition: var(--transition);
+            display: inline-flex; align-items: center; gap: 10px;
         }
         .navbar.scrolled .nav-logo { color: var(--primary-dark); }
         .nav-logo span { color: var(--accent); }
+        .nav-logo-frog {
+            width: 36px; height: 36px;
+            display: inline-flex; align-items: center; justify-content: center;
+            transition: transform var(--transition);
+            flex-shrink: 0;
+            filter: drop-shadow(0 2px 6px rgba(0,0,0,0.35));
+        }
+        .nav-logo-frog img { width: 100%; height: 100%; object-fit: contain; }
+        .nav-logo:hover .nav-logo-frog { transform: rotate(-8deg) scale(1.08); }
+        .navbar.scrolled .nav-logo-frog { filter: drop-shadow(0 2px 6px rgba(39,174,96,0.35)); }
         .nav-links { display: flex; align-items: center; gap: 8px; }
         .nav-links a {
             padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 500;
@@ -138,6 +153,24 @@
         .hero-badge::before {
             content: ''; width: 8px; height: 8px; background: var(--green-light);
             border-radius: 50%; animation: pulse 2s infinite;
+        }
+        .hero-frog {
+            position: absolute; right: 6%; bottom: 8%; z-index: 2;
+            width: clamp(140px, 18vw, 240px); height: auto;
+            filter: drop-shadow(0 18px 28px rgba(0,0,0,0.45)) drop-shadow(0 0 22px rgba(46,204,113,0.35));
+            animation: frogFloat 5s ease-in-out infinite, fadeInUp 1s ease 0.9s backwards;
+            pointer-events: none;
+        }
+        .hero-frog img { width: 100%; height: auto; display: block; }
+        @keyframes frogFloat {
+            0%, 100% { transform: translateY(0) rotate(-2deg); }
+            50% { transform: translateY(-14px) rotate(2deg); }
+        }
+        @media (max-width: 968px) {
+            .hero-frog { right: 4%; bottom: 4%; opacity: 0.55; width: clamp(110px, 22vw, 160px); }
+        }
+        @media (max-width: 600px) {
+            .hero-frog { display: none; }
         }
         @keyframes pulse {
             0%, 100% { opacity: 1; transform: scale(1); }
@@ -493,13 +526,20 @@
             background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--primary-light));
             position: relative; overflow: hidden;
         }
+        .cta-bg { position: absolute; inset: 0; z-index: 0; }
+        .cta-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.25; }
+        .cta-overlay {
+            position: absolute; inset: 0; z-index: 1;
+            background: linear-gradient(135deg, rgba(14,47,68,0.85) 0%, rgba(26,82,118,0.75) 50%, rgba(41,128,185,0.6) 100%);
+        }
         .cta-section::before {
             content: ''; position: absolute; top: -50%; right: -20%;
             width: 500px; height: 500px; border-radius: 50%;
-            background: rgba(255,255,255,0.03);
+            background: rgba(255,255,255,0.04);
+            z-index: 2;
         }
         .cta-content {
-            text-align: center; position: relative; z-index: 1; max-width: 600px; margin: 0 auto;
+            text-align: center; position: relative; z-index: 3; max-width: 600px; margin: 0 auto;
         }
         .cta-content h2 {
             font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #fff; margin-bottom: 16px;
@@ -521,9 +561,17 @@
         .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
         .footer-brand h3 {
             font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #fff; margin-bottom: 12px;
+            display: inline-flex; align-items: center; gap: 12px;
         }
         .footer-brand h3 span { color: var(--accent); }
         .footer-brand p { font-size: 0.9rem; line-height: 1.7; }
+        .footer-frog {
+            width: 42px; height: 42px;
+            display: inline-flex; align-items: center; justify-content: center;
+            flex-shrink: 0;
+            filter: drop-shadow(0 3px 10px rgba(46,204,113,0.45));
+        }
+        .footer-frog img { width: 100%; height: 100%; object-fit: contain; }
         .footer h4 { color: #fff; font-size: 0.95rem; font-weight: 600; margin-bottom: 16px; }
         .footer-links a {
             display: block; padding: 4px 0; font-size: 0.9rem; color: rgba(255,255,255,0.6);
@@ -598,7 +646,10 @@
 <!-- NAVIGATION -->
 <nav class="navbar" id="navbar">
     <div class="container">
-        <a href="#hero" class="nav-logo">Ahrens<span>.</span></a>
+        <a href="#hero" class="nav-logo" aria-label="Ahrens – Startseite">
+            <span class="nav-logo-frog"><img src="static/images/Frosch-Logo.png" alt="Ahrens Frosch-Logo"></span>
+            Ahrens<span>.</span>
+        </a>
         <div class="nav-links" id="navLinks">
             <a href="#about">Über uns</a>
             <a href="#services">Leistungen</a>
@@ -641,6 +692,9 @@
                 </div>
             </div>
         </div>
+    </div>
+    <div class="hero-frog" aria-hidden="true">
+        <img src="static/images/Frosch-Logo.png" alt="">
     </div>
 </section>
 
@@ -813,6 +867,8 @@
 
 <!-- CTA -->
 <section class="section cta-section">
+    <div class="cta-bg"><img src="static/images/wallpaper_bubbles.jpg" alt="" aria-hidden="true"></div>
+    <div class="cta-overlay"></div>
     <div class="container">
         <div class="cta-content fade-up">
             <h2>Jetzt Kontakt aufnehmen</h2>
@@ -1060,7 +1116,10 @@
     <div class="container">
         <div class="footer-grid">
             <div class="footer-brand">
-                <h3>Ahrens<span>.</span></h3>
+                <h3>
+                    <span class="footer-frog" aria-hidden="true"><img src="static/images/Frosch-Logo.png" alt=""></span>
+                    Ahrens<span>.</span>
+                </h3>
                 <p>Thorsten Ahrens Sanitär- und Heizungstechnik – Ihr Meisterbetrieb in Kisdorf. Qualität, Zuverlässigkeit und persönlicher Service.</p>
             </div>
             <div>
