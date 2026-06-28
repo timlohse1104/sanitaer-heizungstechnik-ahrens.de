@@ -1,0 +1,1373 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thorsten Ahrens Sanitär- und Heizungstechnik | Kisdorf</title>
+    <meta name="description" content="Ihr Meisterbetrieb für Sanitär, Heizung, Lüftung und Solartechnik in Kisdorf. Ihr Partner seit 1995 für alle Haustechnik-Belange.">
+    <meta name="keywords" content="Sanitär, Heizung, Lüftung, Solar, Kisdorf, Badsanierung, Wärmepumpe, Brennwerttechnik">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@600;700&display=swap" rel="stylesheet">
+    <style>
+        *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+        :root {
+            --primary: #1a5276;
+            --primary-light: #2980b9;
+            --primary-dark: #0e2f44;
+            --accent: #e67e22;
+            --accent-light: #f39c12;
+            --green: #27ae60;
+            --green-light: #2ecc71;
+            --text: #2c3e50;
+            --text-light: #5d6d7e;
+            --bg: #ffffff;
+            --bg-alt: #f8f9fa;
+            --bg-dark: #1a1a2e;
+            --shadow: 0 4px 20px rgba(0,0,0,0.08);
+            --shadow-lg: 0 10px 40px rgba(0,0,0,0.12);
+            --shadow-xl: 0 20px 60px rgba(0,0,0,0.15);
+            --radius: 16px;
+            --radius-sm: 8px;
+            --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        html { scroll-behavior: smooth; font-size: 16px; }
+        body {
+            font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+            color: var(--text);
+            background: var(--bg);
+            line-height: 1.7;
+            overflow-x: hidden;
+        }
+        img { max-width: 100%; height: auto; display: block; }
+        a { text-decoration: none; color: inherit; transition: var(--transition); }
+        ul { list-style: none; }
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: var(--bg-alt); }
+        ::-webkit-scrollbar-thumb { background: var(--primary-light); border-radius: 4px; }
+        .container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+        .section { padding: 100px 0; }
+        .section-alt { background: var(--bg-alt); }
+        .section-dark { background: var(--bg-dark); color: #fff; }
+        .text-center { text-align: center; }
+        .flex { display: flex; }
+        .flex-wrap { flex-wrap: wrap; }
+        .items-center { align-items: center; }
+        .justify-center { justify-content: center; }
+        .justify-between { justify-content: space-between; }
+        .gap-sm { gap: 16px; }
+        .gap-md { gap: 24px; }
+        .gap-lg { gap: 40px; }
+
+        /* ANIMATIONS */
+        .fade-up { opacity: 0; transform: translateY(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-up.visible { opacity: 1; transform: translateY(0); }
+        .fade-left { opacity: 0; transform: translateX(-40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-left.visible { opacity: 1; transform: translateX(0); }
+        .fade-right { opacity: 0; transform: translateX(40px); transition: opacity 0.7s ease, transform 0.7s ease; }
+        .fade-right.visible { opacity: 1; transform: translateX(0); }
+        .scale-in { opacity: 0; transform: scale(0.9); transition: opacity 0.6s ease, transform 0.6s ease; }
+        .scale-in.visible { opacity: 1; transform: scale(1); }
+        .stagger-1 { transition-delay: 0.1s; }
+        .stagger-2 { transition-delay: 0.2s; }
+        .stagger-3 { transition-delay: 0.3s; }
+        .stagger-4 { transition-delay: 0.4s; }
+
+        /* NAVIGATION */
+        .navbar {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            padding: 16px 0; transition: var(--transition); background: transparent;
+        }
+        .navbar.scrolled {
+            background: rgba(255,255,255,0.97); backdrop-filter: blur(20px);
+            box-shadow: 0 2px 20px rgba(0,0,0,0.08); padding: 10px 0;
+        }
+        .navbar .container { display: flex; align-items: center; justify-content: space-between; }
+        .nav-logo {
+            font-family: 'Playfair Display', serif; font-size: 1.4rem; font-weight: 700;
+            color: #fff; transition: var(--transition);
+        }
+        .navbar.scrolled .nav-logo { color: var(--primary-dark); }
+        .nav-logo span { color: var(--accent); }
+        .nav-links { display: flex; align-items: center; gap: 8px; }
+        .nav-links a {
+            padding: 8px 16px; border-radius: 8px; font-size: 0.9rem; font-weight: 500;
+            color: rgba(255,255,255,0.9); transition: var(--transition);
+        }
+        .navbar.scrolled .nav-links a { color: var(--text); }
+        .nav-links a:hover { background: rgba(255,255,255,0.15); color: #fff; }
+        .navbar.scrolled .nav-links a:hover { background: var(--bg-alt); color: var(--primary); }
+        .nav-links .nav-cta {
+            background: var(--accent); color: #fff !important; padding: 10px 24px;
+            border-radius: 50px; font-weight: 600;
+        }
+        .nav-links .nav-cta:hover { background: var(--accent-light); transform: translateY(-1px); }
+        .nav-toggle {
+            display: none; flex-direction: column; gap: 5px; cursor: pointer;
+            padding: 8px; z-index: 1001;
+        }
+        .nav-toggle span {
+            width: 24px; height: 2px; background: #fff; border-radius: 2px; transition: var(--transition);
+        }
+        .navbar.scrolled .nav-toggle span { background: var(--text); }
+        .nav-toggle.active span:nth-child(1) { transform: rotate(45deg) translate(5px, 5px); }
+        .nav-toggle.active span:nth-child(2) { opacity: 0; }
+        .nav-toggle.active span:nth-child(3) { transform: rotate(-45deg) translate(5px, -5px); }
+
+        /* HERO */
+        .hero {
+            position: relative; min-height: 100vh; display: flex; align-items: center;
+            overflow: hidden;
+            background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
+        }
+        .hero-bg { position: absolute; inset: 0; z-index: 0; }
+        .hero-bg img { width: 100%; height: 100%; object-fit: cover; opacity: 0.25; }
+        .hero-overlay {
+            position: absolute; inset: 0;
+            background: linear-gradient(135deg, rgba(14,47,68,0.85) 0%, rgba(26,82,118,0.7) 50%, rgba(41,128,185,0.5) 100%);
+            z-index: 1;
+        }
+        .hero-content { position: relative; z-index: 2; max-width: 700px; }
+        .hero-badge {
+            display: inline-flex; align-items: center; gap: 8px;
+            background: rgba(255,255,255,0.12); backdrop-filter: blur(10px);
+            border: 1px solid rgba(255,255,255,0.2); padding: 8px 20px;
+            border-radius: 50px; font-size: 0.85rem; color: rgba(255,255,255,0.9);
+            margin-bottom: 24px; animation: fadeInDown 0.8s ease forwards;
+        }
+        .hero-badge::before {
+            content: ''; width: 8px; height: 8px; background: var(--green-light);
+            border-radius: 50%; animation: pulse 2s infinite;
+        }
+        @keyframes pulse {
+            0%, 100% { opacity: 1; transform: scale(1); }
+            50% { opacity: 0.5; transform: scale(1.5); }
+        }
+        @keyframes fadeInDown {
+            from { opacity: 0; transform: translateY(-20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero h1 {
+            font-family: 'Playfair Display', serif; font-size: clamp(2.5rem, 5vw, 4rem);
+            font-weight: 700; color: #fff; line-height: 1.15; margin-bottom: 20px;
+            animation: fadeInUp 0.8s ease 0.2s forwards; opacity: 0;
+        }
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        .hero h1 span { color: var(--accent-light); }
+        .hero p {
+            font-size: 1.15rem; color: rgba(255,255,255,0.85); line-height: 1.8;
+            margin-bottom: 36px; animation: fadeInUp 0.8s ease 0.4s forwards; opacity: 0;
+        }
+        .hero-buttons {
+            display: flex; gap: 16px; flex-wrap: wrap;
+            animation: fadeInUp 0.8s ease 0.6s forwards; opacity: 0;
+        }
+        .btn {
+            display: inline-flex; align-items: center; gap: 8px; padding: 14px 32px;
+            border-radius: 50px; font-size: 0.95rem; font-weight: 600;
+            cursor: pointer; border: none; transition: var(--transition);
+        }
+        .btn-primary {
+            background: var(--accent); color: #fff;
+            box-shadow: 0 4px 15px rgba(230,126,34,0.4);
+        }
+        .btn-primary:hover {
+            background: var(--accent-light); transform: translateY(-2px);
+            box-shadow: 0 6px 25px rgba(230,126,34,0.5);
+        }
+        .btn-outline {
+            background: transparent; color: #fff; border: 2px solid rgba(255,255,255,0.4);
+        }
+        .btn-outline:hover {
+            background: rgba(255,255,255,0.1); border-color: #fff; transform: translateY(-2px);
+        }
+        .hero-stats {
+            position: relative; z-index: 2; display: flex; gap: 48px; margin-top: 60px;
+            animation: fadeInUp 0.8s ease 0.8s forwards; opacity: 0;
+        }
+        .hero-stat { text-align: left; }
+        .hero-stat-number {
+            font-size: 2.5rem; font-weight: 800; color: #fff; line-height: 1;
+        }
+        .hero-stat-number span { color: var(--accent-light); }
+        .hero-stat-label { font-size: 0.85rem; color: rgba(255,255,255,0.7); margin-top: 4px; }
+
+        /* ABOUT */
+        .about-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; }
+        .about-image {
+            position: relative; border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-xl);
+        }
+        .about-image img {
+            width: 100%; height: 400px; object-fit: cover; transition: transform 0.6s ease;
+        }
+        .about-image:hover img { transform: scale(1.03); }
+        .about-image-badge {
+            position: absolute; bottom: 20px; left: 20px; background: var(--accent);
+            color: #fff; padding: 12px 24px; border-radius: 12px; font-weight: 700; font-size: 0.9rem;
+            box-shadow: 0 4px 15px rgba(230,126,34,0.4);
+        }
+        .about-content h2 {
+            font-family: 'Playfair Display', serif; font-size: 2.2rem;
+            color: var(--primary-dark); margin-bottom: 8px;
+        }
+        .about-content .subtitle {
+            color: var(--accent); font-weight: 600; font-size: 0.9rem;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 16px;
+        }
+        .about-content p { color: var(--text-light); margin-bottom: 16px; font-size: 1rem; }
+        .about-features { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-top: 24px; }
+        .about-feature {
+            display: flex; align-items: center; gap: 10px; font-size: 0.9rem;
+            font-weight: 500; color: var(--text);
+        }
+        .about-feature-icon {
+            width: 36px; height: 36px; border-radius: 10px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1rem; flex-shrink: 0;
+        }
+
+        /* TEAM */
+        .team-grid {
+            display: grid; grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            gap: 24px; margin-top: 48px;
+        }
+        .team-card {
+            background: #fff; border-radius: var(--radius); padding: 28px 20px;
+            text-align: center; box-shadow: var(--shadow); transition: var(--transition);
+            border: 1px solid transparent;
+        }
+        .team-card:hover {
+            transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: var(--primary-light);
+        }
+        .team-avatar {
+            width: 88px; height: 88px; border-radius: 50%; margin: 0 auto 16px;
+            display: flex; align-items: center; justify-content: center;
+            font-size: 1.5rem; font-weight: 700; color: #fff; overflow: hidden;
+            border: 3px solid rgba(255,255,255,0.9);
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+        .team-avatar img { width: 100%; height: 100%; object-fit: cover; object-position: top; }
+        .team-card:nth-child(1) .team-avatar { background: linear-gradient(135deg, var(--primary), var(--primary-light)); }
+        .team-card:nth-child(2) .team-avatar { background: linear-gradient(135deg, #e74c3c, #c0392b); }
+        .team-card:nth-child(3) .team-avatar { background: linear-gradient(135deg, #8e44ad, #9b59b6); }
+        .team-card:nth-child(4) .team-avatar { background: linear-gradient(135deg, var(--green), var(--green-light)); }
+        .team-card:nth-child(5) .team-avatar { background: linear-gradient(135deg, var(--accent), var(--accent-light)); }
+        .team-card:nth-child(6) .team-avatar { background: linear-gradient(135deg, #2c3e50, #34495e); }
+        .team-card:nth-child(7) .team-avatar { background: linear-gradient(135deg, #16a085, #1abc9c); }
+        .team-card:nth-child(8) .team-avatar { background: linear-gradient(135deg, #f39c12, #f1c40f); }
+        .team-name { font-weight: 600; font-size: 1rem; color: var(--primary-dark); margin-bottom: 4px; }
+        .team-role { font-size: 0.85rem; color: var(--text-light); }
+
+        /* SERVICES */
+        .services-header {
+            text-align: center; max-width: 600px; margin: 0 auto 60px;
+        }
+        .services-header .subtitle {
+            color: var(--accent); font-weight: 600; font-size: 0.85rem;
+            text-transform: uppercase; letter-spacing: 2px; margin-bottom: 12px;
+        }
+        .services-header h2 {
+            font-family: 'Playfair Display', serif; font-size: 2.2rem;
+            color: var(--primary-dark); margin-bottom: 16px;
+        }
+        .services-header p { color: var(--text-light); font-size: 1rem; }
+        .service-card {
+            background: #fff; border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow-lg); transition: var(--transition);
+            border: 1px solid rgba(0,0,0,0.04);
+            position: relative;
+        }
+        .service-card::before {
+            content: ''; position: absolute; top: 0; left: 0; right: 0; height: 4px;
+            background: linear-gradient(90deg, var(--primary), var(--accent));
+            opacity: 0; transition: var(--transition); z-index: 2;
+        }
+        .service-card:hover {
+            transform: translateY(-10px); box-shadow: var(--shadow-xl);
+            border-color: var(--primary-light);
+        }
+        .service-card:hover::before { opacity: 1; }
+        .service-image { height: 220px; overflow: hidden; position: relative; }
+        .service-image::after {
+            content: ''; position: absolute; inset: 0;
+            background: linear-gradient(180deg, transparent 60%, rgba(0,0,0,0.15));
+            pointer-events: none;
+        }
+        .service-image img {
+            width: 100%; height: 100%; object-fit: cover; transition: transform 0.6s ease;
+        }
+        .service-card:hover .service-image img { transform: scale(1.08); }
+        .service-body { padding: 28px; }
+        .service-body h3 {
+            font-size: 1.35rem; font-weight: 700; color: var(--primary-dark); margin-bottom: 12px;
+            position: relative; padding-bottom: 12px;
+        }
+        .service-body h3::after {
+            content: ''; position: absolute; bottom: 0; left: 0;
+            width: 40px; height: 3px; background: var(--accent); border-radius: 2px;
+            transition: width 0.3s ease;
+        }
+        .service-card:hover .service-body h3::after { width: 60px; }
+        .service-body p {
+            color: var(--text-light); font-size: 0.9rem; margin-bottom: 20px; line-height: 1.7;
+        }
+        .service-list { display: flex; flex-wrap: wrap; gap: 8px; }
+        .service-tag {
+            background: var(--bg-alt); padding: 6px 14px; border-radius: 50px;
+            font-size: 0.78rem; font-weight: 500; color: var(--text); transition: var(--transition);
+        }
+        .service-tag:hover { background: var(--primary); color: #fff; }
+
+        /* GALLERY - BEFORE/AFTER WITH DIAGONAL */
+        .gallery-grid {
+            display: grid; grid-template-columns: repeat(2, 1fr);
+            gap: 24px; margin-top: 48px;
+        }
+
+        /* MASONRY GALLERY */
+        .gallery-masonry {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            grid-template-rows: repeat(4, 140px);
+            grid-auto-flow: dense;
+            gap: 12px;
+            margin-top: 48px;
+        }
+        .gallery-masonry-item {
+            position: relative;
+            border-radius: 12px;
+            overflow: hidden;
+            cursor: pointer;
+            transition: transform 0.3s ease;
+        }
+        .gallery-masonry-item:hover {
+            transform: scale(1.02);
+            z-index: 1;
+        }
+        .gallery-masonry-item img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+        }
+        .gallery-masonry-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+        .gallery-masonry-item:nth-child(6) { grid-column: span 2; }
+
+        /* LIGHTBOX */
+        .lightbox {
+            position: fixed; inset: 0; background: rgba(0,0,0,0.95); z-index: 2000;
+            display: flex; align-items: center; justify-content: center;
+            opacity: 0; visibility: hidden; transition: var(--transition);
+        }
+        .lightbox.active { opacity: 1; visibility: visible; }
+        .lightbox img {
+            max-width: 90%; max-height: 85vh; object-fit: contain;
+            border-radius: 8px; box-shadow: 0 10px 40px rgba(0,0,0,0.5);
+        }
+        .lightbox-close {
+            position: absolute; top: 20px; right: 20px; width: 44px; height: 44px;
+            border-radius: 50%; background: rgba(255,255,255,0.1); border: none;
+            color: #fff; font-size: 1.5rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center; transition: var(--transition);
+        }
+        .lightbox-close:hover { background: rgba(255,255,255,0.2); }
+        .lightbox-nav {
+            position: absolute; top: 50%; transform: translateY(-50%);
+            width: 50px; height: 50px; border-radius: 50%;
+            background: rgba(255,255,255,0.1); border: none;
+            color: #fff; font-size: 1.5rem; cursor: pointer;
+            display: flex; align-items: center; justify-content: center;
+            transition: var(--transition);
+        }
+        .lightbox-nav:hover { background: rgba(255,255,255,0.2); }
+        .lightbox-prev { left: 20px; }
+        .lightbox-next { right: 20px; }
+        .lightbox-counter {
+            position: absolute; bottom: 30px; left: 50%; transform: translateX(-50%);
+            color: rgba(255,255,255,0.7); font-size: 0.9rem;
+        }
+        .gallery-item {
+            position: relative; border-radius: var(--radius); overflow: hidden;
+            box-shadow: var(--shadow); cursor: pointer; aspect-ratio: 16/10;
+            background: #fff;
+        }
+        .gallery-item img {
+            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+            background: #fff;
+            transform: scale(1.08);
+        }
+        .gallery-item:hover img { transform: scale(1.13); }
+        .gallery-item .img-before { z-index: 1; }
+.gallery-item .img-after { z-index: 2; clip-path: var(--drag-clip, polygon(50% 0%, 100% 0%, 100% 100%, 50% 100%)); transition: clip-path 0.6s cubic-bezier(0.4, 0, 0.2, 1); }
+.gallery-item.dragging .img-after { transition: none; }
+.gallery-single { cursor: pointer; }
+.gallery-item:not(.gallery-single) { cursor: pointer; }
+.gallery-item.dragging .gallery-diagonal { transition: none; }
+.gallery-diagonal {
+    position: absolute; top: 0; left: var(--drag-left, 50%); width: 3px; height: 100%;
+    background: #fff; z-index: 3; transform: translateX(-50%) rotate(0deg);
+    transition: left 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+    box-shadow: 0 0 10px rgba(0,0,0,0.5);
+}
+        .gallery-diagonal::before {
+            content: ''; position: absolute; top: 50%; left: 50%;
+            transform: translate(-50%, -50%);
+            width: 40px; height: 40px; background: var(--accent);
+            border-radius: 50%; box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+        }
+.gallery-diagonal::after {
+    content: '<>'; position: absolute; top: 50%; left: 50%;
+    transform: translate(-50%, -50%);
+    color: #fff; font-weight: 700; font-size: 0.9rem;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    pointer-events: none;
+}
+.gallery-diagonal {
+    cursor: ew-resize;
+}
+.gallery-diagonal::before {
+    cursor: grab;
+}
+.gallery-diagonal:active::before {
+    cursor: grabbing;
+}
+
+        .gallery-label {
+            position: absolute; bottom: 0; left: 0; right: 0; padding: 24px;
+            background: linear-gradient(transparent, rgba(0,0,0,0.7));
+            color: #fff; display: flex; align-items: flex-end; justify-content: space-between;
+            z-index: 4;
+        }
+        .gallery-label-text { font-weight: 600; font-size: 1rem; }
+        .gallery-label-sub { font-size: 0.8rem; opacity: 0.8; }
+        .gallery-badge {
+            background: var(--accent); padding: 6px 16px; border-radius: 50px;
+            font-size: 0.75rem; font-weight: 600;
+        }
+        .gallery-single { aspect-ratio: 16/10; }
+        .gallery-single .img-single {
+            position: absolute; inset: 0; width: 100%; height: 100%; object-fit: cover;
+            transition: transform 0.6s ease;
+        }
+        .gallery-single:hover .img-single { transform: scale(1.05); }
+
+        /* CONTACT */
+        .contact-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; }
+        .contact-info h3 {
+            font-family: 'Playfair Display', serif; font-size: 1.8rem;
+            color: var(--primary-dark); margin-bottom: 16px;
+        }
+        .contact-info > p { color: var(--text-light); margin-bottom: 32px; }
+        .contact-details { display: flex; flex-direction: column; gap: 20px; }
+        .contact-item { display: flex; align-items: flex-start; gap: 16px; }
+        .contact-icon {
+            width: 48px; height: 48px; border-radius: 12px;
+            background: linear-gradient(135deg, var(--primary-light), var(--primary));
+            display: flex; align-items: center; justify-content: center;
+            color: #fff; font-size: 1.1rem; flex-shrink: 0;
+        }
+        .contact-icon svg { width: 20px; height: 20px; fill: currentColor; }
+        .contact-item-text strong {
+            display: block; font-size: 0.85rem; color: var(--text-light);
+            font-weight: 500; margin-bottom: 2px;
+        }
+        .contact-item-text span, .contact-item-text a {
+            font-size: 1rem; font-weight: 600; color: var(--primary-dark);
+        }
+        .contact-item-text a:hover { color: var(--accent); }
+        .contact-map {
+            border-radius: var(--radius); overflow: hidden; box-shadow: var(--shadow-lg);
+            height: 100%; min-height: 400px;
+        }
+        .contact-map iframe {
+            width: 100%; height: 100%; min-height: 400px; border: none;
+        }
+
+        /* CTA */
+        .cta-section {
+            background: linear-gradient(135deg, var(--primary-dark), var(--primary), var(--primary-light));
+            position: relative; overflow: hidden;
+        }
+        .cta-section::before {
+            content: ''; position: absolute; top: -50%; right: -20%;
+            width: 500px; height: 500px; border-radius: 50%;
+            background: rgba(255,255,255,0.03);
+        }
+        .cta-content {
+            text-align: center; position: relative; z-index: 1; max-width: 600px; margin: 0 auto;
+        }
+        .cta-content h2 {
+            font-family: 'Playfair Display', serif; font-size: 2.2rem; color: #fff; margin-bottom: 16px;
+        }
+        .cta-content p { color: rgba(255,255,255,0.85); font-size: 1.05rem; margin-bottom: 32px; }
+        .cta-phone {
+            display: inline-flex; align-items: center; gap: 12px; background: var(--accent);
+            color: #fff; padding: 16px 40px; border-radius: 50px; font-size: 1.3rem;
+            font-weight: 700; box-shadow: 0 4px 20px rgba(230,126,34,0.4);
+            transition: var(--transition);
+        }
+        .cta-phone:hover {
+            transform: translateY(-3px) scale(1.02);
+            box-shadow: 0 8px 30px rgba(230,126,34,0.5); color: #fff;
+        }
+
+        /* FOOTER */
+        .footer { background: var(--bg-dark); color: rgba(255,255,255,0.7); padding: 60px 0 30px; }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 40px; }
+        .footer-brand h3 {
+            font-family: 'Playfair Display', serif; font-size: 1.3rem; color: #fff; margin-bottom: 12px;
+        }
+        .footer-brand h3 span { color: var(--accent); }
+        .footer-brand p { font-size: 0.9rem; line-height: 1.7; }
+        .footer h4 { color: #fff; font-size: 0.95rem; font-weight: 600; margin-bottom: 16px; }
+        .footer-links a {
+            display: block; padding: 4px 0; font-size: 0.9rem; color: rgba(255,255,255,0.6);
+        }
+        .footer-links a:hover { color: var(--accent); transform: translateX(4px); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px;
+            display: flex; justify-content: space-between; align-items: center; font-size: 0.85rem;
+        }
+
+        /* BACK TO TOP */
+        .back-to-top {
+            position: fixed; bottom: 30px; right: 30px; width: 48px; height: 48px;
+            border-radius: 50%; background: var(--accent); color: #fff;
+            display: flex; align-items: center; justify-content: center; font-size: 1.2rem;
+            box-shadow: 0 4px 15px rgba(230,126,34,0.4); cursor: pointer;
+            opacity: 0; visibility: hidden; transform: translateY(20px);
+            transition: var(--transition); z-index: 999; border: none;
+        }
+        .back-to-top.visible { opacity: 1; visibility: visible; transform: translateY(0); }
+        .back-to-top:hover { transform: translateY(-3px); box-shadow: 0 6px 25px rgba(230,126,34,0.5); }
+
+        /* IMPRESSUM */
+        .impressum-content { max-width: 800px; margin: 0 auto; }
+        .impressum-content h3 {
+            font-size: 1.3rem; color: var(--primary-dark); margin: 32px 0 12px;
+            padding-bottom: 8px; border-bottom: 2px solid var(--accent); display: inline-block;
+        }
+        .impressum-content p, .impressum-content li {
+            color: var(--text-light); font-size: 0.9rem; line-height: 1.8; margin-bottom: 8px;
+        }
+        .impressum-content ul { padding-left: 20px; list-style: disc; }
+
+        /* RESPONSIVE */
+        @media (max-width: 968px) {
+            .about-grid { grid-template-columns: 1fr; gap: 40px; }
+            .contact-grid { grid-template-columns: 1fr; }
+            .footer-grid { grid-template-columns: 1fr 1fr; }
+            .hero-stats { gap: 32px; }
+        }
+        @media (max-width: 768px) {
+            .section { padding: 60px 0; }
+            .nav-links {
+                position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px;
+                height: 100vh; background: #fff; flex-direction: column;
+                align-items: flex-start; padding: 80px 32px 32px; gap: 4px;
+                box-shadow: -10px 0 30px rgba(0,0,0,0.1); transition: right 0.4s ease;
+            }
+            .nav-links.open { right: 0; }
+            .nav-links a { color: var(--text) !important; width: 100%; padding: 12px 16px; }
+            .nav-links a:hover { background: var(--bg-alt) !important; color: var(--primary) !important; }
+            .nav-toggle { display: flex; }
+            .hero h1 { font-size: 2rem; }
+            .hero-stats { flex-direction: column; gap: 20px; }
+            .hero-stat-number { font-size: 2rem; }
+            .gallery-grid { grid-template-columns: 1fr; }
+            .gallery-masonry {
+                grid-template-columns: repeat(2, 1fr);
+                grid-template-rows: repeat(7, 120px);
+            }
+            .gallery-masonry-item:nth-child(1) { grid-column: span 2; grid-row: span 2; }
+            .gallery-masonry-item:nth-child(6) { grid-column: span 1; }
+            .team-grid { grid-template-columns: repeat(2, 1fr); }
+            .footer-grid { grid-template-columns: 1fr; gap: 32px; }
+            .footer-bottom { flex-direction: column; gap: 8px; text-align: center; }
+            .about-features { grid-template-columns: 1fr; }
+        }
+    </style>
+</head>
+<body>
+
+<!-- NAVIGATION -->
+<nav class="navbar" id="navbar">
+    <div class="container">
+        <a href="#hero" class="nav-logo">Ahrens<span>.</span></a>
+        <div class="nav-links" id="navLinks">
+            <a href="#about">Über uns</a>
+            <a href="#services">Leistungen</a>
+            <a href="#gallery">Galerie</a>
+            <a href="#contact">Kontakt</a>
+            <a href="#impressum">Impressum</a>
+            <a href="tel:04193968674" class="nav-cta">&#9742; 04193 968674</a>
+        </div>
+        <div class="nav-toggle" id="navToggle">
+            <span></span><span></span><span></span>
+        </div>
+    </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+    <div class="hero-bg"><img src="static/images/wallpaper_bubbles.jpg" alt="Team Ahrens"></div>
+    <div class="hero-overlay"></div>
+    <div class="container">
+        <div class="hero-content">
+            <div class="hero-badge">Ihr Partner seit 1995</div>
+            <h1>Sanitär & Heizung<br>aus <span>Meisterhand</span></h1>
+            <p>Das Team von Thorsten Ahrens Sanitär- und Heizungstechnik freut sich, Sie auf unserer Webseite begrüßen zu dürfen. Wir stehen für Qualität, Zuverlässigkeit und persönlichen Service – von der Beratung bis zur Fertigstellung.</p>
+            <div class="hero-buttons">
+                <a href="#services" class="btn btn-primary">Unsere Leistungen &#8594;</a>
+                <a href="#contact" class="btn btn-outline">Kontakt aufnehmen</a>
+            </div>
+            <div class="hero-stats">
+                <div class="hero-stat">
+                    <div class="hero-stat-number">30<span>+</span></div>
+                    <div class="hero-stat-label">Jahre Erfahrung</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">4<span> Gewerke</span></div>
+                    <div class="hero-stat-label">Alles aus einer Hand</div>
+                </div>
+                <div class="hero-stat">
+                    <div class="hero-stat-number">7<span> Profis</span></div>
+                    <div class="hero-stat-label">Engagiertes Team</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- ABOUT -->
+<section class="section" id="about">
+    <div class="container">
+        <div class="about-grid">
+            <div class="about-image fade-left">
+                <img src="static/images/Gruppenbild1.jpg" alt="Team Ahrens Sanitär">
+                <div class="about-image-badge">&#10003; Ihr Partner seit 1995</div>
+            </div>
+            <div class="about-content fade-right">
+                <div class="subtitle">Über uns</div>
+                <h2>Ihr Fachbetrieb<br>in Kisdorf</h2>
+                <p>Egal, ob wir eine Armatur austauschen, die Heizung reparieren, oder eine ganze Reihenhauszeile fertig stellen – für uns steht immer die Zufriedenheit des Kunden im Mittelpunkt.</p>
+                <p>Darum kümmern sich – in unserem 1995 gegründeten Meisterbetrieb – Thorsten Ahrens und sein Team. Als Ausbildungsbetrieb stellen wir uns der unternehmerischen und gesellschaftlichen Verantwortung und sorgen für die Fachkräfte von morgen.</p>
+                <div class="about-features">
+                    <div class="about-feature">
+                        <div class="about-feature-icon">&#9733;</div>
+                        <span>Meisterbetrieb</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">&#9889;</div>
+                        <span>Notdienst</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">&#9998;</div>
+                        <span>Ausbildungsbetrieb</span>
+                    </div>
+                    <div class="about-feature">
+                        <div class="about-feature-icon">&#128203;</div>
+                        <span>Faire Beratung</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- TEAM -->
+        <div style="margin-top: 80px;">
+            <div class="services-header fade-up">
+                <div class="subtitle">Unser Team</div>
+                <h2>Profis, auf die Sie sich verlassen können</h2>
+            </div>
+            <div class="team-grid">
+                <div class="team-card fade-up stagger-1">
+                    <div class="team-avatar"><img src="static/images/profile/Thorsten.png" alt="Thorsten Ahrens"></div>
+                    <div class="team-name">Thorsten Ahrens</div>
+                    <div class="team-role">Meister & Inhaber</div>
+                </div>
+                <div class="team-card fade-up stagger-2">
+                    <div class="team-avatar"><img src="static/images/profile/Frauke.png" alt="Frauke Ahrens"></div>
+                    <div class="team-name">Frauke Ahrens</div>
+                    <div class="team-role">Büro</div>
+                </div>
+                <div class="team-card fade-up stagger-3">
+                    <div class="team-avatar"><img src="static/images/profile/Bettina.png" alt="Bettina Hanke"></div>
+                    <div class="team-name">Bettina Hanke</div>
+                    <div class="team-role">Büro</div>
+                </div>
+                <div class="team-card fade-up stagger-1">
+                    <div class="team-avatar"><img src="static/images/profile/Frank.png" alt="Frank Sorgenfrei"></div>
+                    <div class="team-name">Frank Sorgenfrei</div>
+                    <div class="team-role">Geselle</div>
+                </div>
+                <div class="team-card fade-up stagger-2">
+                    <div class="team-avatar"><img src="static/images/profile/Magnus.png" alt="Magnus Ahrens"></div>
+                    <div class="team-name">Magnus Ahrens</div>
+                    <div class="team-role">Auszubildender</div>
+                </div>
+                <div class="team-card fade-up stagger-3">
+                    <div class="team-avatar"><img src="static/images/profile/Karsten.png" alt="Karsten Piller"></div>
+                    <div class="team-name">Karsten Piller</div>
+                    <div class="team-role">Kundendienst</div>
+                </div>
+                <div class="team-card fade-up stagger-4">
+                    <div class="team-avatar"><img src="static/images/profile/Ole.png" alt="Ole Peters"></div>
+                    <div class="team-name">Ole Peters</div>
+                    <div class="team-role">Auszubildender</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- SERVICES -->
+<section class="section section-alt" id="services">
+    <div class="container">
+        <div class="services-header fade-up">
+            <div class="subtitle">Leistungsangebot</div>
+            <h2>Unsere Leistungen</h2>
+            <p>Unser Betrieb bietet Ihnen ein großes Leistungsspektrum rund um die Haustechnik. Am Anfang all unserer Projekte steht die Besichtigung Ihrer Räumlichkeiten und ein umfassendes Beratungsgespräch.</p>
+        </div>
+        <div class="flex flex-wrap gap-md" style="justify-content: center;">
+
+            <!-- SANITÄR -->
+            <div class="service-card fade-up stagger-1" style="flex: 1 1 280px; max-width: 380px;">
+                <div class="service-image">
+                    <img src="static/images/services/sanitaer.jpg" alt="Sanitär Installation">
+                </div>
+                <div class="service-body">
+                    <h3>Sanitär</h3>
+                    <p>Zeitlos schönes Baddesign. Ob Badsanierung, Neubau oder Reparatur – wir konzipieren, liefern und installieren alles aus einer Hand.</p>
+                    <div class="service-list">
+                        <span class="service-tag">Badsanierung</span>
+                        <span class="service-tag">Komplettbäder</span>
+                        <span class="service-tag">Duschen</span>
+                        <span class="service-tag">Rohrbruch</span>
+                        <span class="service-tag">Reparatur</span>
+                        <span class="service-tag">Barrierefrei</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- HEIZUNG -->
+            <div class="service-card fade-up stagger-2" style="flex: 1 1 280px; max-width: 380px;">
+                <div class="service-image">
+                    <img src="static/images/services/heizung.jpg" alt="Heizungstechnik">
+                </div>
+                <div class="service-body">
+                    <h3>Heizung</h3>
+                    <p>Innovative Heiztechnik – mehr Heizkomfort und weniger Energieverbrauch. Wir optimieren Ihre Anlage oder planen eine neue.</p>
+                    <div class="service-list">
+                        <span class="service-tag">Brennwerttechnik</span>
+                        <span class="service-tag">Wärmepumpen</span>
+                        <span class="service-tag">Fußbodenheizung</span>
+                        <span class="service-tag">Kesseltausch</span>
+                        <span class="service-tag">Wartung</span>
+                        <span class="service-tag">Notdienst</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- LÜFTUNG -->
+            <div class="service-card fade-up stagger-3" style="flex: 1 1 280px; max-width: 380px;">
+                <div class="service-image">
+                    <img src="static/images/services/lueftung.jpg" alt="Lüftungstechnik">
+                </div>
+                <div class="service-body">
+                    <h3>Lüftung</h3>
+                    <p>Frischluft in Gebäuden ist unerlässlich für Konzentration, Wohlbefinden und Gesundheit. Mechanische Be- und Entlüftung mit Wärmerückgewinnung.</p>
+                    <div class="service-list">
+                        <span class="service-tag">Wärmerückgewinnung</span>
+                        <span class="service-tag">Einbau</span>
+                        <span class="service-tag">Wartung</span>
+                        <span class="service-tag">Reparatur</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- SOLAR -->
+            <div class="service-card fade-up stagger-4" style="flex: 1 1 280px; max-width: 380px;">
+                <div class="service-image">
+                    <img src="static/images/services/solar.jpg" alt="Solartechnik">
+                </div>
+                <div class="service-body">
+                    <h3>Solar</h3>
+                    <p>Die Energie der Sonne effektiv nutzen. Thermische Solaranlagen mit Einsparungen von ca. 60-70% bei der Trinkwassererwärmung.</p>
+                    <div class="service-list">
+                        <span class="service-tag">Thermisch</span>
+                        <span class="service-tag">Förderung</span>
+                        <span class="service-tag">Beratung</span>
+                        <span class="service-tag">Einbau</span>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- CTA -->
+<section class="section cta-section">
+    <div class="container">
+        <div class="cta-content fade-up">
+            <h2>Jetzt Kontakt aufnehmen</h2>
+            <p>Sie haben Fragen? Nehmen Sie Kontakt zu uns auf – wir helfen Ihnen gerne. Unverbindliche Beratung und faire Angebote.</p>
+            <a href="tel:04193968674" class="cta-phone">&#9742; 04193 968674</a>
+        </div>
+    </div>
+</section>
+
+<!-- MASONRY GALLERY -->
+<section class="section section-alt" id="gallery">
+    <div class="container">
+        <div class="services-header fade-up">
+            <div class="subtitle">Projekt-Galerie</div>
+            <h2>Unsere Arbeiten</h2>
+            <p>Ein Überblick über unsere abgeschlossenen Projekte.</p>
+        </div>
+        <div class="gallery-masonry">
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(0)">
+                <img src="static/images/gallery/P1100282_big.jpg" alt="Projekt 1">
+            </div>
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(1)">
+                <img src="static/images/gallery/P1100284_big.jpg" alt="Projekt 2">
+            </div>
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(2)">
+                <img src="static/images/gallery/P1100285_big.jpg" alt="Projekt 3">
+            </div>
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(3)">
+                <img src="static/images/gallery/P1100288_big.jpg" alt="Projekt 4">
+            </div>
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(4)">
+                <img src="static/images/gallery/P1100289_big.jpg" alt="Projekt 5">
+            </div>
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(5)">
+                <img src="static/images/gallery/P1100294_big.jpg" alt="Projekt 6">
+            </div>
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(6)">
+                <img src="static/images/gallery/P1100296_big.jpg" alt="Projekt 7">
+            </div>
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(7)">
+                <img src="static/images/gallery/P1100298_big.jpg" alt="Projekt 8">
+            </div>
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(8)">
+                <img src="static/images/gallery/P1100303_big.jpg" alt="Projekt 9">
+            </div>
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(9)">
+                <img src="static/images/gallery/P1100310_big.jpg" alt="Projekt 10">
+            </div>
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(10)">
+                <img src="static/images/gallery/P1100315_big.jpg" alt="Projekt 11">
+            </div>
+            <div class="gallery-masonry-item scale-in" onclick="openLightbox(11)">
+                <img src="static/images/gallery/P1100329_big.jpg" alt="Projekt 12">
+            </div>
+        </div>
+
+        <!-- Vorher/Nachher und Modernisierung -->
+        <div class="services-header fade-up" style="margin-top: 80px;">
+            <div class="subtitle">Vorher / Nachher</div>
+            <h2>Modernisierung im Detail</h2>
+            <p>Sehen Sie selbst den Unterschied – ziehen Sie den Schieberegler, um Vorher und Nachher zu vergleichen.</p>
+        </div>
+        <div class="gallery-grid">
+
+            <!-- Gallery Item 1: Sanitär-Installation (vorher/nachher mit Schieberegler) -->
+            <div class="gallery-item scale-in" data-before="static/images/gallery/before_after/before1.png" data-after="static/images/gallery/before_after/after1.png" onclick="handleBeforeAfterClick(event, this)">
+                <img class="img-before" src="static/images/gallery/before_after/before1.png" alt="Vorher">
+                <img class="img-after" src="static/images/gallery/before_after/after1.png" alt="Nachher">
+                <div class="gallery-diagonal"></div>
+                <div class="gallery-label">
+                    <div>
+                        <div class="gallery-label-text">Sanitär-Installation</div>
+                        <div class="gallery-label-sub">Vorher / Nachher</div>
+                    </div>
+                    <div class="gallery-badge">Projekt</div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 2: Sanitär-Installation (vorher/nachher mit Schieberegler) -->
+            <div class="gallery-item scale-in" data-before="static/images/gallery/before_after/before2.png" data-after="static/images/gallery/before_after/after2.png" onclick="handleBeforeAfterClick(event, this)">
+                <img class="img-before" src="static/images/gallery/before_after/before2.png" alt="Vorher">
+                <img class="img-after" src="static/images/gallery/before_after/after2.png" alt="Nachher">
+                <div class="gallery-diagonal"></div>
+                <div class="gallery-label">
+                    <div>
+                        <div class="gallery-label-text">Sanitär-Installation</div>
+                        <div class="gallery-label-sub">Vorher / Nachher</div>
+                    </div>
+                    <div class="gallery-badge">Projekt</div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 3: Modernisierung auf hohem Niveau (Einzelbild) -->
+            <div class="gallery-item scale-in gallery-single" onclick="openProjectLightbox('static/images/gallery/modernization/modernisierung1.png')">
+                <img class="img-single" src="static/images/gallery/modernization/modernisierung1.png" alt="Modernisierung auf hohem Niveau">
+                <div class="gallery-label">
+                    <div>
+                        <div class="gallery-label-text">Modernisierung auf hohem Niveau</div>
+                        <div class="gallery-label-sub">Projekt</div>
+                    </div>
+                    <div class="gallery-badge">Projekt</div>
+                </div>
+            </div>
+
+            <!-- Gallery Item 4: Modernisierung auf hohem Niveau (Einzelbild) -->
+            <div class="gallery-item scale-in gallery-single" onclick="openProjectLightbox('static/images/gallery/modernization/modernisierung2.png')">
+                <img class="img-single" src="static/images/gallery/modernization/modernisierung2.png" alt="Modernisierung auf hohem Niveau">
+                <div class="gallery-label">
+                    <div>
+                        <div class="gallery-label-text">Modernisierung auf hohem Niveau</div>
+                        <div class="gallery-label-sub">Projekt</div>
+                    </div>
+                    <div class="gallery-badge">Projekt</div>
+                </div>
+            </div>
+
+        </div>
+    </div>
+</section>
+
+<!-- LIGHTBOX -->
+<div class="lightbox" id="lightbox" onclick="closeLightbox()">
+    <button class="lightbox-close" onclick="closeLightbox()">&times;</button>
+    <button class="lightbox-nav lightbox-prev" onclick="navigateLightbox(-1)">&#8249;</button>
+    <button class="lightbox-nav lightbox-next" onclick="navigateLightbox(1)">&#8250;</button>
+    <img src="" alt="Vergrößert" id="lightboxImg">
+    <div class="lightbox-counter" id="lightboxCounter">1 / 12</div>
+</div>
+
+<!-- CONTACT -->
+<section class="section section-alt" id="contact">
+    <div class="container">
+        <div class="contact-grid">
+            <div class="contact-info fade-left">
+                <div class="subtitle" style="color: var(--accent); font-weight: 600; font-size: 0.85rem; text-transform: uppercase; letter-spacing: 2px; margin-bottom: 8px;">Kontakt</div>
+                <h3>Wir freuen uns auf Ihre Anfrage</h3>
+                <p>Kommen Sie gerne auf uns zu – wir beraten Sie unverbindlich und finden die passende Lösung für Ihr Projekt.</p>
+                <div class="contact-details">
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M12 2C8.13 2 5 5.13 5 9c0 5.25 7 13 7 13s7-7.75 7-13c0-3.87-3.13-7-7-7zm0 9.5c-1.38 0-2.5-1.12-2.5-2.5s1.12-2.5 2.5-2.5 2.5 1.12 2.5 2.5-1.12 2.5-2.5 2.5z"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <strong>Adresse</strong>
+                            <span>Ton Hogenbargen 45<br>24629 Kisdorf</span>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M6.62 10.79c1.44 2.83 3.76 5.14 6.59 6.59l2.2-2.2c.27-.27.67-.36 1.02-.24 1.12.37 2.33.57 3.57.57.55 0 1 .45 1 1V20c0 .55-.45 1-1 1-9.39 0-17-7.61-17-17 0-.55.45-1 1-1h3.5c.55 0 1 .45 1 1 0 1.25.2 2.45.57 3.57.11.35.03.74-.25 1.02l-2.2 2.2z"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <strong>Telefon</strong>
+                            <a href="tel:04193968674">04193 968674</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <strong>E-Mail</strong>
+                            <a href="mailto:ahrens.sanheitec@t-online.de">ahrens.sanheitec@t-online.de</a>
+                        </div>
+                    </div>
+                    <div class="contact-item">
+                        <div class="contact-icon">
+                            <svg viewBox="0 0 24 24"><path d="M11.99 2C6.47 2 2 6.48 2 12s4.47 10 9.99 10C17.52 22 22 17.52 22 12S17.52 2 11.99 2zm6.93 6h-2.95c-.32-1.25-.78-2.45-1.38-3.56 1.84.63 3.37 1.91 4.33 3.56zM12 4.04c.83 1.2 1.48 2.53 1.91 3.96h-3.82c.43-1.43 1.08-2.76 1.91-3.96zM4.26 14C4.1 13.36 4 12.69 4 12s.1-1.36.26-2h3.38c-.08.66-.14 1.32-.14 2 0 .68.06 1.34.14 2H4.26zm.82 2h2.95c.32 1.25.78 2.45 1.38 3.56-1.84-.63-3.37-1.9-4.33-3.56zm2.95-8H5.08c.96-1.66 2.49-2.93 4.33-3.56C8.81 5.55 8.35 6.75 8.03 8zM12 19.96c-.83-1.2-1.48-2.53-1.91-3.96h3.82c-.43 1.43-1.08 2.76-1.91 3.96zM14.34 14H9.66c-.09-.66-.16-1.32-.16-2 0-.68.07-1.35.16-2h4.68c.09.65.16 1.32.16 2 0 .68-.07 1.34-.16 2zm.25 5.56c.6-1.11 1.06-2.31 1.38-3.56h2.95c-.96 1.65-2.49 2.93-4.33 3.56zM16.36 14c.08-.66.14-1.32.14-2 0-.68-.06-1.34-.14-2h3.38c.16.64.26 1.31.26 2s-.1 1.36-.26 2h-3.38z"/></svg>
+                        </div>
+                        <div class="contact-item-text">
+                            <strong>Internet</strong>
+                            <a href="https://www.sanitaer-heizungstechnik-ahrens.de" target="_blank">www.sanitaer-heizungstechnik-ahrens.de</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="contact-map fade-right">
+                <iframe src="https://www.openstreetmap.org/export/embed.html?bbox=10.0118%2C53.8125%2C10.0158%2C53.8165&layer=mapnik&marker=53.8144951%2C10.0137953" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- IMPRESSUM -->
+<section class="section" id="impressum">
+    <div class="container">
+        <div class="services-header fade-up" style="margin-bottom: 40px;">
+            <div class="subtitle">Rechtliches</div>
+            <h2>Impressum & Datenschutz</h2>
+        </div>
+        <div class="impressum-content fade-up">
+            <h3>Impressum</h3>
+            <p><strong>Thorsten Ahrens Sanitär- und Heizungstechnik</strong><br>
+            Meisterbetrieb<br>
+            Ton Hogenbargen 45<br>
+            24629 Kisdorf</p>
+            <p>Telefon: <a href="tel:04193968674">04193 - 96 86 74</a><br>
+            Email: <a href="mailto:ahrens.sanheitec@t-online.de">ahrens.sanheitec@t-online.de</a><br>
+            Internet: <a href="https://www.sanitaer-heizungstechnik-ahrens.de">www.sanitaer-heizungstechnik-ahrens.de</a></p>
+
+            <p><strong>Unternehmensform:</strong> Einzelunternehmen<br>
+            <strong>Inhaber:</strong> Thorsten Ahrens<br>
+            <strong>Berufsbezeichnung:</strong> Klempner, Installateur und Heizungsbauer (Deutschland)<br>
+            <strong>Kammer:</strong> Handwerkskammer Lübeck, Breite Straße 10-12, 23552 Lübeck<br>
+            <strong>Eingetragen als:</strong> Sanitär und Heizungstechnik (Deutschland)<br>
+            <strong>Innung:</strong> Sanitär-Heizung-Klima-Innung für den Kreis Segeberg, Hamburger Straße 24, 23795 Bad Segeberg<br>
+            <strong>USt-IdNr.:</strong> DE 251656396<br>
+            <strong>Steuernummer:</strong> 041/973/04973</p>
+
+            <h3>Datenschutzerklärung</h3>
+            <p>Die nachfolgende Datenschutzerklärung gilt für die Nutzung unseres Online-Auftritts www.sanitaer-heizungstechnik-ahrens.de.</p>
+            <p>Wir messen dem Datenschutz große Bedeutung bei. Die Erhebung und Verarbeitung Ihrer personenbezogenen Daten geschieht unter Beachtung der geltenden datenschutzrechtlichen Vorschriften, insbesondere der Datenschutzgrundverordnung (DSGVO).</p>
+
+            <h3>1. Verantwortlicher</h3>
+            <p>Verantwortlicher für die Erhebung, Verarbeitung und Nutzung Ihrer personenbezogenen Daten im Sinne von Art. 4 Nr. 7 DSGVO ist Thorsten Ahrens, Ton Hogenbargen 45, 24629 Kisdorf.</p>
+
+            <h3>2. Allgemeine Nutzung der Website</h3>
+            <p><strong>2.1 E-Mail-Kontakt:</strong> Wenn Sie mit uns in Kontakt treten, speichern wir Ihre Angaben zur Bearbeitung der Anfrage sowie für den Fall, dass Anschlussfragen entstehen. Hierin liegt auch unser berechtigtes Interesse gemäß Art. 6 Abs. 1 S. 1 f) DSGVO.</p>
+            <p><strong>2.2 Speicherdauer:</strong> Sofern nicht spezifisch angegeben speichern wir personenbezogene Daten nur so lange, wie dies zur Erfüllung der verfolgten Zwecke notwendig ist.</p>
+            <p><strong>2.3 Rechtsgrundlagen:</strong> Rechtsgrundlage der Datenverarbeitung ist Art. 6 Abs. 1 S. 1 a), b) und f) DSGVO.</p>
+
+            <h3>3. Ihre Rechte</h3>
+            <ul>
+                <li><strong>3.1 Recht auf Bestätigung und Auskunft</strong> – Sie haben jederzeit das Recht auf Auskunft über Ihre gespeicherten Daten.</li>
+                <li><strong>3.2 Recht auf Berichtigung</strong> – Sie haben das Recht auf unverzügliche Berichtigung unrichtiger Daten.</li>
+                <li><strong>3.3 Recht auf Löschung</strong> – Sie haben das Recht auf Löschung Ihrer Daten gemäß Art. 17 Abs. 1 DSGVO.</li>
+                <li><strong>3.4 Recht auf Einschränkung der Verarbeitung</strong> – Sie haben das Recht auf Einschränkung der Verarbeitung.</li>
+                <li><strong>3.5 Recht auf Datenübertragbarkeit</strong> – Sie haben das Recht auf Übermittlung Ihrer Daten in maschinenlesbarem Format.</li>
+                <li><strong>3.6 Widerspruchsrecht</strong> – Sie haben das Recht, jederzeit gegen die Verarbeitung Widerspruch einzulegen.</li>
+                <li><strong>3.7 Recht auf Widerruf einer Einwilligung</strong> – Eine erteilte Einwilligung können Sie jederzeit widerrufen.</li>
+                <li><strong>3.8 Recht auf Beschwerde</strong> – Sie haben das Recht auf Beschwerde bei einer Aufsichtsbehörde.</li>
+            </ul>
+
+            <h3>4. Datensicherheit</h3>
+            <p>Wir sind um die Sicherheit Ihrer Daten im Rahmen der geltenden Datenschutzgesetze und technischen Möglichkeiten maximal bemüht. Ihre persönlichen Daten werden verschlüsselt übertragen (SSL). Zur Sicherung unterhalten wir technische und organisatorische Maßnahmen entsprechend Art. 32 DSGVO.</p>
+
+            <h3>5. Weitergabe von Daten</h3>
+            <p>Grundsätzlich verwenden wir Ihre personenbezogenen Daten nur innerhalb unseres Unternehmens. Eine Datenübertragung an Stellen außerhalb der EU findet nicht statt.</p>
+        </div>
+    </div>
+</section>
+
+<!-- FOOTER -->
+<footer class="footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div class="footer-brand">
+                <h3>Ahrens<span>.</span></h3>
+                <p>Thorsten Ahrens Sanitär- und Heizungstechnik – Ihr Meisterbetrieb in Kisdorf. Qualität, Zuverlässigkeit und persönlicher Service.</p>
+            </div>
+            <div>
+                <h4>Navigation</h4>
+                <div class="footer-links">
+                    <a href="#about">Über uns</a>
+                    <a href="#services">Leistungen</a>
+                    <a href="#gallery">Galerie</a>
+                    <a href="#contact">Kontakt</a>
+                    <a href="#impressum">Impressum</a>
+                </div>
+            </div>
+            <div>
+                <h4>Kontakt</h4>
+                <div class="footer-links">
+                    <a href="tel:04193968674">04193 968674</a>
+                    <a href="mailto:ahrens.sanheitec@t-online.de">ahrens.sanheitec@t-online.de</a>
+                    <a>Ton Hogenbargen 45</a>
+                    <a>24629 Kisdorf</a>
+                </div>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>&copy; 2026 Thorsten Ahrens Sanitär- und Heizungstechnik. Alle Rechte vorbehalten.</span>
+            <span>Meisterbetrieb in Kisdorf</span>
+        </div>
+    </div>
+</footer>
+
+<!-- BACK TO TOP -->
+<button class="back-to-top" id="backToTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">&#8593;</button>
+
+<script>
+const navbar = document.getElementById('navbar');
+const backToTop = document.getElementById('backToTop');
+window.addEventListener('scroll', () => {
+    const scrolled = window.scrollY > 80;
+    navbar.classList.toggle('scrolled', scrolled);
+    backToTop.classList.toggle('visible', window.scrollY > 400);
+});
+
+const navToggle = document.getElementById('navToggle');
+const navLinks = document.getElementById('navLinks');
+navToggle.addEventListener('click', () => {
+    navToggle.classList.toggle('active');
+    navLinks.classList.toggle('open');
+});
+navLinks.querySelectorAll('a').forEach(link => {
+    link.addEventListener('click', () => {
+        navToggle.classList.remove('active');
+        navLinks.classList.remove('open');
+    });
+});
+
+const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            entry.target.classList.add('visible');
+        }
+    });
+}, { threshold: 0.1, rootMargin: '0px 0px -50px 0px' });
+
+document.querySelectorAll('.fade-up, .fade-left, .fade-right, .scale-in').forEach(el => {
+    observer.observe(el);
+});
+
+document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+        const lightbox = document.getElementById('lightbox');
+        if (lightbox) {
+            lightbox.classList.remove('active');
+            document.body.style.overflow = '';
+        }
+    }
+});
+
+// Gallery diagonal drag functionality
+document.querySelectorAll('.gallery-item').forEach(item => {
+    const diagonal = item.querySelector('.gallery-diagonal');
+    if (!diagonal) return;
+
+    let isDragging = false;
+    let hasMoved = false;
+    let startX = 0;
+    let startY = 0;
+    let currentLeft = 50;
+    const dragThreshold = 5;
+
+    function updatePosition(leftPercent) {
+        leftPercent = Math.max(0, Math.min(100, leftPercent));
+        item.style.setProperty('--drag-left', leftPercent + '%');
+        item.querySelector('.img-after').style.setProperty('--drag-clip', `polygon(${leftPercent}% 0%, 100% 0%, 100% 100%, ${leftPercent}% 100%)`);
+    }
+
+    function handleStart(e) {
+        isDragging = true;
+        hasMoved = false;
+        startX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        startY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+        item.classList.add('dragging');
+    }
+
+    function handleMove(e) {
+        if (!isDragging) return;
+        const clientX = e.type.includes('touch') ? e.touches[0].clientX : e.clientX;
+        const clientY = e.type.includes('touch') ? e.touches[0].clientY : e.clientY;
+        const deltaX = Math.abs(clientX - startX);
+        const deltaY = Math.abs(clientY - startY);
+
+        if (deltaX > dragThreshold || deltaY > dragThreshold) {
+            hasMoved = true;
+            const rect = item.getBoundingClientRect();
+            const moveDeltaX = clientX - startX;
+            const deltaPercent = (moveDeltaX / rect.width) * 100;
+            currentLeft = Math.max(0, Math.min(100, currentLeft + deltaPercent));
+            updatePosition(currentLeft);
+            startX = clientX;
+            startY = clientY;
+            if (e.type.includes('touch')) {
+                e.preventDefault();
+            }
+        }
+    }
+
+    function handleEnd(e) {
+        if (isDragging) {
+            isDragging = false;
+            item.classList.remove('dragging');
+            if (hasMoved && e.type === 'mouseup') {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+        }
+    }
+
+    diagonal.addEventListener('mousedown', handleStart);
+    diagonal.addEventListener('touchstart', handleStart, { passive: true });
+    document.addEventListener('mousemove', handleMove);
+    document.addEventListener('touchmove', handleMove, { passive: false });
+    document.addEventListener('mouseup', handleEnd);
+    document.addEventListener('touchend', handleEnd);
+
+    // Prevent lightbox when clicking on diagonal handle
+    diagonal.addEventListener('click', (e) => {
+        if (hasMoved) {
+            e.preventDefault();
+            e.stopPropagation();
+        }
+    });
+
+    // Initialize position
+    updatePosition(50);
+});
+
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+    anchor.addEventListener('click', function(e) {
+        e.preventDefault();
+        const target = document.querySelector(this.getAttribute('href'));
+        if (target) {
+            const offset = 80;
+            const top = target.getBoundingClientRect().top + window.scrollY - offset;
+            window.scrollTo({ top, behavior: 'smooth' });
+        }
+    });
+});
+
+function animateCounters() {
+    document.querySelectorAll('.hero-stat-number').forEach(counter => {
+        const text = counter.textContent;
+        const match = text.match(/(\d+)/);
+        if (!match) return;
+        const target = parseInt(match[1]);
+        const suffix = text.replace(match[1], '');
+        // For year numbers (4-digit), start higher to avoid long counting
+        const startValue = target >= 1000 ? target - 30 : 0;
+        let current = startValue;
+        const increment = (target - startValue) / 40;
+        const timer = setInterval(() => {
+            current += increment;
+            if (current >= target) {
+                current = target;
+                clearInterval(timer);
+            }
+            const num = Math.floor(current);
+            const wrappedSuffix = suffix
+                .replace('+', '<span>+</span>')
+                .replace('%', '<span>%</span>')
+                .replace(/h$/, '<span>h</span>')
+                .replace(/^( \S.*)$/, '<span>$1</span>');
+            counter.innerHTML = num + wrappedSuffix;
+        }, 40);
+    });
+}
+
+const heroObserver = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+        if (entry.isIntersecting) {
+            animateCounters();
+            heroObserver.disconnect();
+        }
+    });
+}, { threshold: 0.5 });
+
+const heroStats = document.querySelector('.hero-stats');
+if (heroStats) heroObserver.observe(heroStats);
+
+// Lightbox functionality
+const galleryImages = [
+    'static/images/gallery/P1100282_big.jpg',
+    'static/images/gallery/P1100284_big.jpg',
+    'static/images/gallery/P1100285_big.jpg',
+    'static/images/gallery/P1100288_big.jpg',
+    'static/images/gallery/P1100289_big.jpg',
+    'static/images/gallery/P1100294_big.jpg',
+    'static/images/gallery/P1100296_big.jpg',
+    'static/images/gallery/P1100298_big.jpg',
+    'static/images/gallery/P1100303_big.jpg',
+    'static/images/gallery/P1100310_big.jpg',
+    'static/images/gallery/P1100315_big.jpg',
+    'static/images/gallery/P1100329_big.jpg'
+];
+
+let currentImageIndex = 0;
+
+function openLightbox(index) {
+    currentImageIndex = index;
+    const counter = document.getElementById('lightboxCounter');
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    if (counter) counter.style.display = '';
+    if (prevBtn) prevBtn.style.display = '';
+    if (nextBtn) nextBtn.style.display = '';
+    updateLightboxImage();
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+function closeLightbox() {
+    document.getElementById('lightbox').classList.remove('active');
+    document.body.style.overflow = '';
+}
+
+function navigateLightbox(direction) {
+    event.stopPropagation();
+    currentImageIndex += direction;
+    if (currentImageIndex < 0) currentImageIndex = galleryImages.length - 1;
+    if (currentImageIndex >= galleryImages.length) currentImageIndex = 0;
+    updateLightboxImage();
+}
+
+// Open lightbox with a single image (for project images without navigation)
+function openProjectLightbox(src) {
+    const lightboxImg = document.getElementById('lightboxImg');
+    const counter = document.getElementById('lightboxCounter');
+    const prevBtn = document.querySelector('.lightbox-prev');
+    const nextBtn = document.querySelector('.lightbox-next');
+    if (lightboxImg) lightboxImg.src = src;
+    if (counter) counter.style.display = 'none';
+    if (prevBtn) prevBtn.style.display = 'none';
+    if (nextBtn) nextBtn.style.display = 'none';
+    document.getElementById('lightbox').classList.add('active');
+    document.body.style.overflow = 'hidden';
+}
+
+// Handle click on before/after gallery item - open lightbox based on click position
+function handleBeforeAfterClick(event, item) {
+    // Don't trigger if clicking the diagonal slider
+    if (event.target.classList.contains('gallery-diagonal') ||
+        event.target.closest('.gallery-diagonal')) {
+        return;
+    }
+    // Don't trigger if drag happened (handled by drag listener)
+    if (item.dataset.justDragged === 'true') {
+        item.dataset.justDragged = 'false';
+        return;
+    }
+    const rect = item.getBoundingClientRect();
+    const clickX = event.clientX - rect.left;
+    const isLeftHalf = clickX < rect.width / 2;
+    const src = isLeftHalf ? item.dataset.before : item.dataset.after;
+    openProjectLightbox(src);
+}
+
+function updateLightboxImage() {
+    const lightboxImg = document.getElementById('lightboxImg');
+    const counter = document.getElementById('lightboxCounter');
+    if (lightboxImg) {
+        lightboxImg.src = galleryImages[currentImageIndex];
+    }
+    if (counter) {
+        counter.textContent = `${currentImageIndex + 1} / ${galleryImages.length}`;
+    }
+}
+
+document.addEventListener('keydown', (e) => {
+    const lightbox = document.getElementById('lightbox');
+    if (!lightbox.classList.contains('active')) return;
+
+    if (e.key === 'Escape') {
+        closeLightbox();
+    } else if (e.key === 'ArrowLeft') {
+        navigateLightbox(-1);
+    } else if (e.key === 'ArrowRight') {
+        navigateLightbox(1);
+    }
+});
+</script>
+
+</body>
+</html>
