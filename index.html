@@ -132,7 +132,7 @@
         /* HERO */
         .hero {
             position: relative; min-height: 100vh; display: flex; align-items: center;
-            overflow: hidden;
+            overflow: hidden; padding: 96px 0 48px;
             background: linear-gradient(135deg, var(--primary-dark) 0%, var(--primary) 50%, var(--primary-light) 100%);
         }
         .hero-bg { position: absolute; inset: 0; z-index: 0; }
@@ -614,6 +614,7 @@
         }
         @media (max-width: 768px) {
             .section { padding: 60px 0; }
+            .hero { align-items: flex-start; padding-top: 104px; padding-bottom: 56px; }
             .nav-links {
                 position: fixed; top: 0; right: -100%; width: 80%; max-width: 320px;
                 height: 100vh; background: #fff; flex-direction: column;
@@ -648,7 +649,7 @@
     <div class="container">
         <a href="#hero" class="nav-logo" aria-label="Ahrens – Startseite">
             <span class="nav-logo-frog"><img src="static/images/Frosch-Logo.png" alt="Ahrens Frosch-Logo"></span>
-            Ahrens<span>.</span>
+            Ahrens
         </a>
         <div class="nav-links" id="navLinks">
             <a href="#about">Über uns</a>
@@ -1125,7 +1126,7 @@
             <div class="footer-brand">
                 <h3>
                     <span class="footer-frog" aria-hidden="true"><img src="static/images/Frosch-Logo.png" alt=""></span>
-                    Ahrens<span>.</span>
+                    Ahrens
                 </h3>
                 <p>Thorsten Ahrens Sanitär- und Heizungstechnik – Meisterbetrieb in Kisdorf. Wir kümmern uns um Ihre Haustechnik. Persönlich, gründlich, mit Handschlagqualität.</p>
             </div>
